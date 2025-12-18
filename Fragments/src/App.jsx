@@ -1,14 +1,17 @@
+import Fooditems from "./Components/Fooditems"
+import Errormes from "./Components/Errormes"
 
 function App() {
- let fooditems=["dal","Vegetable","Roti","BHAT","KUCH BHI NAHI","ghee"]
+  // let fooditems=[]
+    let fooditems=["dal","green vegetable","milk","teja","sid","sonu"]
+
+
   return (
-   <>
-   <h1>Healty Food</h1>
-   <ul className="list-group">
-  <li className="list-group-item">Dal</li>
-  {fooditems.map((item)=> (<li key={item} className="list-group-item">{item}</li>) )}
-</ul>
-</>
+  <>
+     <h1>Healty Food</h1>
+     <Errormes item={fooditems}></Errormes>
+     <Fooditems item={fooditems}></Fooditems>
+  </>
 
   )
 }
