@@ -1,4 +1,4 @@
-import Item from "./item"
+import Item from "./Item"
 
 const Fooditems=({item})=>{
     //let fooditems=[]
@@ -6,7 +6,7 @@ const Fooditems=({item})=>{
     return(
     <ul className="list-group">
       {item.map((item)=> 
-       (<Item foodItem={item}></Item>)
+       (<Item  key={item} foodItem={item}></Item>)
        )}
     </ul>
     )
