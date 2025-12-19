@@ -1,7 +1,11 @@
-.item {
+.items{
   background-color: khaki;
 }
 
 .span{
     font-weight: 500;
+}
+
+.buy{
+  float: right;
 }
