@@ -4,6 +4,7 @@ import Todoitems from "./components/Todoitems";
 import './App.css';
 import { useState } from "react";
 import Welcome from "./components/Welcome";
+import { TodoItemsContext } from "./store/todo-item-store";
 
 
 function App() {
@@ -11,26 +12,32 @@ function App() {
 
  const [todoItems,setTodoItems] =useState([]);
 
- const handleOnNewItem=(itemName,itemDueDate)=>{
+ const addNewItem=(itemName,itemDueDate)=>{
    const newTodoItem=[...todoItems, {name:itemName, dueDate:itemDueDate} ];
    setTodoItems(newTodoItem);
  }
 
- const handleDeletItem=(itemName)=>{
+ const deleteItem=(itemName)=>{
      console.log(`item deleted: ${itemName}`);
      const afterDeleteItem =todoItems.filter(item=>item.name !== itemName);
      setTodoItems(afterDeleteItem)
  }
 
-  return (
+  return ( 
+  <TodoItemsContext.Provider value={{
+    todoItems,
+    addNewItem,
+    deleteItem,
+    }}>
   <center className='todo-container'>
 
    <AppName></AppName>
-   <TODO onNewItem={handleOnNewItem}></TODO>
-   {todoItems.length===0 && <Welcome></Welcome>}
-   <Todoitems onDeteleItem={handleDeletItem} todoitems={todoItems}></Todoitems>
+   <TODO></TODO>
+   <Welcome ></Welcome>
+   <Todoitems></Todoitems>
 
   </center>
+</TodoItemsContext.Provider>
   )
 
 }

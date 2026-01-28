@@ -5,7 +5,11 @@ return(
  <div className='items'>
    {
     todoitems.map((item)=>(
-        <Todoitem task={item.name} date={item.dueDate} onDeteleItem={onDeteleItem}></Todoitem>
+        <Todoitem 
+        key={item.name}
+        task={item.name} 
+        date={item.dueDate}
+        onDeteleItem={onDeteleItem}></Todoitem>
     ))
    }
     </div> 

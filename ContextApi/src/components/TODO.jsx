@@ -1,7 +1,10 @@
-import {useState} from"react"
-function TODO({onNewItem}){
+import {useContext, useState} from"react"
+import { TodoItemsContext } from "../store/todo-item-store";
+
+function TODO(){
+  const {addNewItem}= useContext(TodoItemsContext);
   const [todoName,setTodoName] = useState("");
-  const[todoDate,setTodoDate]= useState("");
+  const [todoDate,setTodoDate] = useState("");
 
   const handleNameChange =(event)=>{
     setTodoName(event.target.value);
@@ -13,7 +16,7 @@ function TODO({onNewItem}){
 
   const handleAddButtonClicked=(event)=>{
     event.preventDefault();
-      onNewItem(todoName, todoDate );
+      addNewItem(todoName, todoDate );
       setTodoDate("");
       setTodoName("");
   }
